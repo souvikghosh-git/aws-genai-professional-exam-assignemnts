@@ -12,6 +12,34 @@ The system is designed for high availability and dynamic model selection:
     *   **Fallback**: If Primary fails, retries with a lighter model (e.g., Titan Text Express).
     *   **Degradation**: If Fallback fails, returns a static system maintenance message.
 3.  **Cross-Region Resilience**: The entire stack is deployed to both `us-east-1` (Primary) and `us-west-2` (Secondary) for active-passive failover.
+4.  **Model Fine-Tuning (MLOps)**: An optional MLOps workflow using AWS SageMaker and S3 to fine-tune foundation models on domain-specific data, improving performance for specialized financial queries.
+
+### Architecture Diagram
+
+```mermaid
+graph TD
+    User([User Application]) -->|HTTPS POST| APIGW[API Gateway]
+    APIGW --> SFN[Step Functions Workflow]
+    
+    subgraph "Circuit Breaker Logic"
+        SFN -->|1. Try| Primary{Primary Model?}
+        Primary -->|Invoke| Router[Model Router Lambda]
+        Router -.->|Read Rules| AppConfig[AWS AppConfig]
+        Router -->|Invoke| BedrockPri[Bedrock: Claude 3]
+        
+        Primary --x|Fail| Fallback{Fallback Model?}
+        Fallback -->|Invoke| Backup[Fallback Lambda]
+        Backup -->|Invoke| BedrockSec[Bedrock: Titan]
+        
+        Fallback --x|Fail| Degradation[Degradation Lambda]
+    end
+    
+    subgraph "MLOps (Optional)"
+        Data[Training Data] -->|Upload| S3[S3 Bucket]
+        S3 -->|Fine-tune| CustomJob[Bedrock Customization Job]
+        CustomJob -.->|Deploy| BedrockPri
+    end
+```
 
 ## Project Structure
 
