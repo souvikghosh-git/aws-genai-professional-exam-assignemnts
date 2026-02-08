@@ -1,0 +1,122 @@
+[
+  {
+    "model": "anthropic.claude-3-sonnet-20240229-v1:0",
+    "latency": 2.8946,
+    "input_tokens": 20,
+    "output_tokens": 64,
+    "cost": 0.00102,
+    "compliance": "PASS",
+    "response_preview": "I'm an AI assistant, I don't actually offer any fi...",
+    "question": "What are the key features of y..."
+  },
+  {
+    "model": "anthropic.claude-3-sonnet-20240229-v1:0",
+    "latency": 6.4666,
+    "input_tokens": 24,
+    "output_tokens": 428,
+    "cost": 0.006492,
+    "compliance": "PASS",
+    "response_preview": "A Roth IRA and a Traditional IRA are both types of...",
+    "question": "Explain the difference between..."
+  },
+  {
+    "model": "anthropic.claude-3-sonnet-20240229-v1:0",
+    "latency": 6.6693,
+    "input_tokens": 18,
+    "output_tokens": 308,
+    "cost": 0.004674,
+    "compliance": "FLAGGED",
+    "response_preview": "Here are some typical steps to dispute a transacti...",
+    "question": "How can I dispute a transactio..."
+  },
+  {
+    "model": "anthropic.claude-3-sonnet-20240229-v1:0",
+    "latency": 6.5009,
+    "input_tokens": 21,
+    "output_tokens": 241,
+    "cost": 0.003678,
+    "compliance": "PASS",
+    "response_preview": "If you suspect fraudulent activity on your account...",
+    "question": "What should I do if I suspect ..."
+  },
+  {
+    "model": "meta.llama3-8b-instruct-v1:0",
+    "latency": 4.6263,
+    "input_tokens": 23,
+    "output_tokens": 438,
+    "cost": 0.000272,
+    "compliance": "PASS",
+    "response_preview": "As a digital AI assistant, I don't have a physical...",
+    "question": "What are the key features of y..."
+  },
+  {
+    "model": "meta.llama3-8b-instruct-v1:0",
+    "latency": 5.2163,
+    "input_tokens": 23,
+    "output_tokens": 512,
+    "cost": 0.000316,
+    "compliance": "PASS",
+    "response_preview": "Both Roth Individual Retirement Accounts (IRAs) an...",
+    "question": "Explain the difference between..."
+  },
+  {
+    "model": "meta.llama3-8b-instruct-v1:0",
+    "latency": 5.2893,
+    "input_tokens": 21,
+    "output_tokens": 512,
+    "cost": 0.000316,
+    "compliance": "FLAGGED",
+    "response_preview": "Disputing a transaction on your credit card is a s...",
+    "question": "How can I dispute a transactio..."
+  },
+  {
+    "model": "meta.llama3-8b-instruct-v1:0",
+    "latency": 5.3531,
+    "input_tokens": 23,
+    "output_tokens": 512,
+    "cost": 0.000316,
+    "compliance": "PASS",
+    "response_preview": "If you suspect fraudulent activity on your account...",
+    "question": "What should I do if I suspect ..."
+  },
+  {
+    "model": "mistral.mistral-7b-instruct-v0:2",
+    "latency": 4.5909,
+    "input_tokens": 23,
+    "output_tokens": 438,
+    "cost": 9.1e-05,
+    "compliance": "PASS",
+    "response_preview": " I'm an AI language model and don't have the abili...",
+    "question": "What are the key features of y..."
+  },
+  {
+    "model": "mistral.mistral-7b-instruct-v0:2",
+    "latency": 5.8899,
+    "input_tokens": 25,
+    "output_tokens": 446,
+    "cost": 9.3e-05,
+    "compliance": "PASS",
+    "response_preview": " A Roth IRA and a Traditional IRA are two types of...",
+    "question": "Explain the difference between..."
+  },
+  {
+    "model": "mistral.mistral-7b-instruct-v0:2",
+    "latency": 5.7378,
+    "input_tokens": 20,
+    "output_tokens": 333,
+    "cost": 7e-05,
+    "compliance": "PASS",
+    "response_preview": " To dispute a transaction on your credit card, fol...",
+    "question": "How can I dispute a transactio..."
+  },
+  {
+    "model": "mistral.mistral-7b-instruct-v0:2",
+    "latency": 6.015,
+    "input_tokens": 23,
+    "output_tokens": 512,
+    "cost": 0.000106,
+    "compliance": "PASS",
+    "response_preview": " If you suspect fraudulent activity on your accoun...",
+    "question": "What should I do if I suspect ..."
+  }
+]
