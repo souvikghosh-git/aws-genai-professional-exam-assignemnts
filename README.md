@@ -53,3 +53,35 @@ curl -X POST -H "Content-Type: application/json" \
 ## Configuration
 
 Model selection is managed via AWS AppConfig > `ModelSelectionApp` > `ModelConfig` profile. Update the JSON configuration to switch models dynamically without redeployment.
+
+## Part 4: Model Fine-tuning (MLOps)
+
+The project includes an optional MLOps stack for managing model fine-tuning and lifecycle.
+
+### 1. Deploy MLOps Infrastructure
+Uncomment the `MLOpsStack` instantiation in `app.py`:
+
+```python
+MLOpsStack(app, "MLOpsStack",
+    env=cdk.Environment(account="...", region="us-east-1"),
+)
+```
+
+Then deploy:
+```bash
+npx aws-cdk deploy MLOpsStack
+```
+This creates an S3 bucket for training data and an IAM role for SageMaker/Bedrock.
+
+### 2. Run Fine-tuning Job
+Use the helper script to initiate a Bedrock model customization job:
+
+```bash
+# Set environment variables from MLOpsStack outputs
+export SAGEMAKER_ROLE_ARN="arn:aws:iam::..." 
+export S3_BUCKET_NAME="..."
+
+python3 runtime/ml_ops/start_finetuning.py
+```
+This script uploads training data (requires `train/dataset.jsonl` in the bucket) and starts a customization job for a foundation model (e.g., Claude 3 or Titan).
+
